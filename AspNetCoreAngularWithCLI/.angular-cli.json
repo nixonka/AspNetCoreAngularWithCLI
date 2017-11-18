@@ -1,0 +1,20 @@
+{
+    "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+    "project": {
+      "name": "AspNetCoreAngularWithCLI"
+    },
+    "apps": [
+      {
+        "root": "ClientApp",
+        "outDir": "wwwroot/dist",
+        "assets": [
+          "assets",
+          "favicon.ico"
+        ],
+        "index": "index.html",
+        "main": "main.ts",
+        "tsconfig": "tsconfig.json",
+        "prefix": "appc"
+      }
+    ]
+  }
