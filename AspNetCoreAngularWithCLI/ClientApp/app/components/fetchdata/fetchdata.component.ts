@@ -1,17 +1,26 @@
-import { Component, Inject } from '@angular/core';
-import { Http } from '@angular/http';
+import { Component, Inject, OnInit } from '@angular/core';
+import { HttpClient } from "@angular/common/http";
 
 @Component({
     selector: 'fetchdata',
     templateUrl: './fetchdata.component.html'
 })
-export class FetchDataComponent {
+export class FetchDataComponent implements OnInit {
     public forecasts: WeatherForecast[];
 
-    constructor(http: Http, @Inject('BASE_URL') baseUrl: string) {
-        http.get(baseUrl + 'api/SampleData/WeatherForecasts').subscribe(result => {
-            this.forecasts = result.json() as WeatherForecast[];
-        }, error => console.error(error));
+    constructor(
+        private http: HttpClient,
+        @Inject('BASE_URL') private baseUrl: string
+    ) { }
+
+    ngOnInit() {
+        this.http.get(this.baseUrl + 'api/SampleData/WeatherForecasts')
+            .subscribe(
+                data => {
+                    this.forecasts = data as WeatherForecast[];
+                },
+                error => console.error(error)
+                );
     }
 }
 
