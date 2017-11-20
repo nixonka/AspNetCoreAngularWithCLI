@@ -1,4 +1,5 @@
-# AspNetCoreAngularWithCLI
+
+# Asp Net Core Angular Template With Angular CLI
 
 Created SPA app using Visual Studio 2017 and Asp Net Core Angular template. 
 
